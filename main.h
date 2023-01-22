@@ -14,8 +14,8 @@ typedef struct fmt
 {
 char *type;
 int (*f)();
-fmt_t;
-}
+} fmt_t;
+
 int _printf(const char *format, ...);
 int print_op(const char *format, fmt_t *print_arr, va_list list);
 int ch(va_list character);
