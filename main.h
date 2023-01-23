@@ -1,30 +1,33 @@
-#ifndef MAINH
-#define MAINH
-
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdarg.h>
-int _putchar(char c);
-int _printf(const char *format, ...);
-int print_char(va_list c);
-int print_string(va_list s);
-int print_int(va_list i);
-int print_dec(va_list d);
-int print_rev(va_list r);
-int print_bin(va_list b);
-int print_unsig(va_list u);
-int print_octal(va_list o);
-int print_x(va_list x);
-int print_X(va_list X);
-int print_rot13(va_list R);
-/**
- * struct code_format - Struct format
- *
- * @sc: The specifiers
- * @f: The function associated
- */
-typedef struct code_format
-{
-char *sc;
-int (*f)(va_list);
-} code_f;
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-#endif /* MAIN */
+/**
+ * struct fmt - function to check for formats
+ * @type: The format to print
+ * @f: The print function to use
+ */
+typedef struct fmt
+{
+char *type;
+int (*f)();
+} fmt_t;
+
+int _printf(const char *format, ...);
+int print_op(const char *format, fmt_t *print_arr, va_list list);
+int ch(va_list character);
+int str(va_list string);
+int _int(va_list integ);
+int _ui(va_list unsign);
+int _oct(va_list octo);
+int _rot13(va_list rot);
+int _hex_str(unsigned int n, unsigned int hex, char alpha);
+int _hex_l(va_list hexa);
+int _hex_u(va_list hexa);
+int _strlen(char *s);
+int _bin(va_list bin);
+int _putchar(char c);
+#endif
