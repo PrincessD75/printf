@@ -41,7 +41,7 @@ return (p);
 
 int give_width(char *s, char formatter)
 {
-  int w, i;
+int w, i;
 
 i = 1;
 w = 0;
